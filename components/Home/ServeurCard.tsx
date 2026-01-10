@@ -39,7 +39,7 @@ export default function ServeurCard({
   };
   return (
     <Card
-      className={cn(`flex flex-col justify-between border-${border[variant]}`, className)}
+      className={cn(`flex flex-col justify-between border-${border[variant]} hover:scale-105 transition duration-300`, className)}
       {...props}
     >
       <CardHeader>

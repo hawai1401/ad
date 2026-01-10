@@ -72,32 +72,26 @@ export default async function Home() {
           <div className="border-blue-400 text-blue-400 bg-blue-950/50" />
           <div className="border-purple-400 text-purple-400 bg-purple-950/50" />
         </div>
-        <div className="container flex gap-4 flex-wrap">
+        <div className="container flex gap-6 flex-wrap">
           <DescriptionCard title="Notre mission" color="green">
             Le Groupe AD est une initiative ambitieuse visant à rassembler un
-            maximum de serveurs Discord sous une même bannière. Notre objectif
-            est de créer un écosystème interconnecté où chaque communauté peut
-            prospérer tout en bénéficiant du soutien du groupe.
+            maximum de serveurs Discord sous un même groupe.
           </DescriptionCard>
           <DescriptionCard title="Notre Vision" color="orange">
-            Devenir le plus grand réseau de serveurs Discord, offrant des
-            opportunités de collaboration et de croissance pour tous nos
-            membres.
+            Devenir le plus grand groupe de serveurs Discord. Unir différentes
+            communautés Discord
           </DescriptionCard>
           <DescriptionCard title="Nos Valeurs" color="blue">
-            Collaboration, innovation et communauté sont au cœur de tout ce que
-            nous faisons. Nous croyons en la force du collectif.
+            Accompagnement, respect, courtoisie, gentillesse, entraide, mérite.
+            Voici nos valeurs !
           </DescriptionCard>
           <DescriptionCard title="L'Histoire du Groupe" color="purple">
-            Le Groupe AD a démarré avec une vision simple : unir différentes
-            communautés Discord pour créer quelque chose de plus grand.
-            Aujourd&apos;hui, nous comptons déjà 2 serveurs actifs plus notre
-            serveur central, et nous continuons de grandir.
+            Le Groupe AD a démarré avec une vision : unir différentes
+            communautés Discord. Aujourd&apos;hui, nous comptons déjà 2 serveurs
+            actifs plus notre serveur central, et nous continuons de grandir.
             <br />
             <br />
-            Chaque serveur de notre groupe conserve son identité unique tout en
-            bénéficiant de la synergie et des ressources du réseau AD. Ensemble,
-            nous sommes plus forts.
+            Chaque serveur de notre groupe à un domaine précis. Ce qui permet d&apos;apporter de l&apos;aide plus facilement.
           </DescriptionCard>
         </div>
       </section>
@@ -121,7 +115,7 @@ export default async function Home() {
           <div className="border-green-500" />
           <div className="border-purple-500" />
         </div>
-        <div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
+        <div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-5">
           <ServeurCard
             title="Assemblée des Fondateurs"
             description="Le serveur principal pour tous les fondateurs. Rejoignez-nous pour

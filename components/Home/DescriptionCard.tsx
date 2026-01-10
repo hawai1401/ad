@@ -5,14 +5,16 @@ import { ReactNode } from "react";
 export default function DescriptionCard({
   title,
   color,
-  children
+  children,
 }: {
   title: string;
   color: descriptionCardColor;
-  children: ReactNode
+  children: ReactNode;
 }) {
   return (
-    <Card className={`border-${color}-400 bg-${color}-950/50 p-8 flex-1 min-w-full sm:min-w-100`}>
+    <Card
+      className={`border-${color}-400 bg-${color}-950/50 p-8 flex-1 min-w-full sm:min-w-100 hover:scale-105 transition duration-300`}
+    >
       <CardHeader>
         <CardTitle className={`text-${color}-400 text-xl`}>{title}</CardTitle>
       </CardHeader>
