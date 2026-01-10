@@ -19,16 +19,16 @@ export default function Nav() {
       <div className="flex justify-center items-center">
         <ul className="menu menu-horizontal px-1 hidden sm:flex">
           <li>
-            <Link href="#accueil">Accueil</Link>
+            <Link href="/#accueil">Accueil</Link>
           </li>
           <li>
-            <Link href="#about">À propos</Link>
+            <Link href="/#about">À propos</Link>
           </li>
           <li>
-            <Link href="#serveurs">Serveurs</Link>
+            <Link href="/#serveurs">Serveurs</Link>
           </li>
           <li>
-            <Link target="_blank" href="https://discord.gg/P3dcjTuuav">
+            <Link target="_blank" href="https://discord.gg/qSfBRQWjJb">
               Discord
             </Link>
           </li>
