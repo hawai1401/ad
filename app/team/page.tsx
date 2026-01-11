@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata, ResolvingMetadata } from "next";
 
 export async function generateMetadata(
+  _: unknown,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const teamMembers = await getTeamMembers();
