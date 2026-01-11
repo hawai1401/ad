@@ -14,7 +14,7 @@ export default function StaffCard({
 }) {
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-4 border-2 border-${color}-300 rounded-box p-8 bg-${color}-500/10 `}
+      className={`flex flex-col items-center justify-center gap-4 border-2 border-${color}-300 rounded-box p-8 bg-${color}-500/10 hover:scale-105 transition duration-300`}
     >
       <div className="flex items-center gap-2">
         <Image

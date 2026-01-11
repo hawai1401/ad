@@ -1,7 +1,5 @@
-// prisma/schema.prisma
-
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
   output   = "../generated/adf/client"
 }
 
@@ -65,7 +63,7 @@ model User {
   sessions Session[]
   accounts Account[]
   serveurs serveur[]
-  apikeys Apikey[]
+  apikeys  Apikey[]
 
   @@map("user")
 }

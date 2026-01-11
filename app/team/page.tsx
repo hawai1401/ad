@@ -48,7 +48,7 @@ export async function generateMetadata(
 
 export default async function Team() {
   const teamMembers = await getTeamMembers();
-  const users = await adDB.user.findMany({
+  const users = await adDB.userBio.findMany({
     cacheStrategy: {
       ttl: 60 * 60,
       swr: 60,
