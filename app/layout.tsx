@@ -32,7 +32,10 @@ export const metadata: Metadata = {
   description:
     "Le Groupe AD a pour mission de rassembler un maximum de serveurs Discord. Rejoignez notre communauté grandissante et découvrez nos serveurs dédiés aux fondateurs, développeurs et bien plus encore !",
   openGraph: {
-    title: "Groupe AD",
+    title: {
+      template: "AD | %s",
+      default: "AD",
+    },
     description:
       "Le Groupe AD a pour mission de rassembler un maximum de serveurs Discord. Rejoignez notre communauté grandissante et découvrez nos serveurs dédiés aux fondateurs, développeurs et bien plus encore !",
     url: "https://ad.hawai1401.fr",
@@ -50,7 +53,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Groupe AD",
+    title: {
+      template: "AD | %s",
+      default: "AD",
+    },
     description:
       "Le Groupe AD a pour mission de rassembler un maximum de serveurs Discord. Rejoignez notre communauté grandissante et découvrez nos serveurs dédiés aux fondateurs, développeurs et bien plus encore !",
     images: ["/logo.webp"],

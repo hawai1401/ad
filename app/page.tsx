@@ -7,6 +7,12 @@ import DescriptionCard from "@/components/Home/DescriptionCard";
 
 export const metadata: Metadata = {
   title: "Accueil",
+  openGraph: {
+    title: "Accueil",
+  },
+  twitter: {
+    title: "Accueil",
+  },
 };
 
 export default async function Home() {
@@ -91,7 +97,8 @@ export default async function Home() {
             actifs plus notre serveur central, et nous continuons de grandir.
             <br />
             <br />
-            Chaque serveur de notre groupe à un domaine précis. Ce qui permet d&apos;apporter de l&apos;aide plus facilement.
+            Chaque serveur de notre groupe à un domaine précis. Ce qui permet
+            d&apos;apporter de l&apos;aide plus facilement.
           </DescriptionCard>
         </div>
       </section>

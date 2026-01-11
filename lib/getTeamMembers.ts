@@ -3,7 +3,7 @@
 import { TeamRole } from "@/types/enum";
 import { guildMember } from "@/types/types";
 
-export async function getTeamMembers() {
+export async function getTeamMembers(): Promise<Record<string, guildMember[]>> {
   const members: guildMember[] = await fetch(
     `https://discord.com/api/v10/guilds/1456366724806082562/members?limit=1000`,
     {

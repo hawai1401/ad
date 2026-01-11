@@ -3,16 +3,63 @@ import { getTeamMembers } from "@/lib/getTeamMembers";
 import { adDB } from "@/lib/prisma";
 import { cn } from "@/lib/utils";
 
+import type { Metadata, ResolvingMetadata } from "next";
+
+export async function generateMetadata(
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const teamMembers = await getTeamMembers();
+  const defaultMetadata = await parent;
+
+  const usernames: string[] = [];
+
+  for (const key in teamMembers) {
+    if (!Object.hasOwn(teamMembers, key)) continue;
+
+    const members = teamMembers[key];
+
+    usernames.push(...members.map((u) => u.user.username));
+  }
+
+  return {
+    title: "Équipe",
+    description: "Voici les différents membres de notre équipe.",
+    openGraph: {
+      title: "Équipe",
+      description: "Voici les différents membres de notre équipe.",
+      url: `https://ad.hawai1401.fr/team`,
+    },
+    twitter: {
+      title: "Équipe",
+      description: "Voici les différents membres de notre équipe.",
+    },
+    keywords: [
+      ...defaultMetadata.keywords!,
+      "Équipe",
+      "Staff",
+      "Gérant",
+      "Président",
+      "Directeur",
+      ...usernames,
+    ],
+  };
+}
+
 export default async function Team() {
   const teamMembers = await getTeamMembers();
-  const users = await adDB.user.findMany();
+  const users = await adDB.user.findMany({
+    cacheStrategy: {
+      ttl: 60 * 60,
+      swr: 60,
+    },
+  });
 
   return (
     <main className="scroll-mt-16.25 min-h-[calc(100vh-65px)] bg-base-200 p-8 flex flex-col gap-30">
       <div className="flex flex-col gap-4 text-center bg-base-300 py-10 shadow-xl rounded-xl">
         <h1 className="text-5xl font-semibold">Équipe</h1>
         <p className="text-xl opacity-80">
-          Voici les différents membres de notre équipe
+          Voici les différents membres de notre équipe.
         </p>
       </div>
       <div className="hidden">
