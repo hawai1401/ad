@@ -28,6 +28,9 @@ export default function Nav() {
             <Link href="/#serveurs">Serveurs</Link>
           </li>
           <li>
+            <Link href="/team">Équipe</Link>
+          </li>
+          <li>
             <Link target="_blank" href="https://discord.gg/qSfBRQWjJb">
               Discord
             </Link>

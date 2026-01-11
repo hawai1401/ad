@@ -1,0 +1,151 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/adf/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model serveur {
+  id                  String   @id @unique
+  approuved           Boolean  @default(false)
+  pending             Boolean  @default(true)
+  whitelist           Boolean  @default(false)
+  nom                 String
+  description         String   @default("")
+  description_pending String
+  logoURL             String?
+  tags                tags[]   @default([])
+  tags_pending        tags[]
+  link                String   @default("")
+  link_pending        String
+  createAt            DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  owner               User     @relation(references: [id], fields: [userId])
+  userId              String
+  member_count        Int
+}
+
+enum tags {
+  E_Sport
+  Pub
+  Rp
+  Art
+  Communautaire
+  Gaming
+  Informatique
+  Micronation
+  Sport
+  Audiovisuel
+
+  @@map("tags")
+}
+
+model Blacklist {
+  id      String @id
+  raison  String
+  message String
+
+  @@map("blacklist")
+}
+
+model User {
+  id            String   @id
+  discord_id    String   @default("")
+  email         String   @unique
+  name          String?
+  emailVerified Boolean  @default(false)
+  image         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  sessions Session[]
+  accounts Account[]
+  serveurs serveur[]
+  apikeys Apikey[]
+
+  @@map("user")
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("session")
+}
+
+model Account {
+  id         String @id
+  accountId  String
+  providerId String
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@unique([providerId, accountId])
+  @@index([userId])
+  @@map("account")
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+  @@map("verification")
+}
+
+model Apikey {
+  id                  String    @id
+  name                String?
+  start               String?
+  prefix              String?
+  key                 String
+  userId              String
+  user                User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  refillInterval      Int?
+  refillAmount        Int?
+  lastRefillAt        DateTime?
+  enabled             Boolean?  @default(true)
+  rateLimitEnabled    Boolean?  @default(true)
+  rateLimitTimeWindow Int?      @default(86400000)
+  rateLimitMax        Int?      @default(10)
+  requestCount        Int?      @default(0)
+  remaining           Int?
+  lastRequest         DateTime?
+  expiresAt           DateTime?
+  createdAt           DateTime
+  updatedAt           DateTime
+  permissions         String?
+  metadata            String?
+
+  @@index([key])
+  @@index([userId])
+  @@map("apikey")
+}
