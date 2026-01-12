@@ -28,3 +28,12 @@ export interface guildMember {
   roles: string[];
   user: user;
 }
+
+export interface searchParams {
+  [key: string]: string | string[] | undefined;
+}
+
+export interface passwordResetSearchParams extends searchParams {
+  token?: string | undefined;
+  error?: "INVALID_TOKEN" | undefined;
+}

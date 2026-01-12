@@ -60,6 +60,7 @@ export default function AdminForm() {
             id="email"
             type="email"
             name="email"
+            autoComplete="email"
             placeholder="m@example.com"
             required
             disabled={pending}
@@ -80,6 +81,7 @@ export default function AdminForm() {
             minLength={8}
             type="password"
             name="password"
+            autoComplete="current-password"
             required
             disabled={pending}
           />
